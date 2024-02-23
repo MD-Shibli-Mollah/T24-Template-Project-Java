@@ -1,0 +1,92 @@
+# UTF-8
+/* Foundation for Core */
+Domain EB_Foundation
+    @t24:i (module=EB)
+    @java:Package (value=com.temenos.t24.datamodel.eb.eb_foundation)
+namespace "http://www.temenos.com/t24/EB_Foundation"
+metamodelVersion 1.30.6
+Classes {
+    EB_JBL_ATM_CARD_PARAMETER
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.JBL.ATM.CARD.PARAMETER, level=I, type=D, additionalInfo=NOH, allowedFunctions="A C D E H I L P Q R S", localApplication=true, localRefAllowed=false)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber="15->15.0", core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber="16->16.0", core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="12->12.0", core=true, t24Name=AUTHORISER, mandatory=false)
+        BIN -> byValue EB_Foundation:EB_JBL_ATM_CARD_PARAMETER__BIN *
+            @t24:i (t24Name=BIN)
+        CATEGORY -> byValue EB_Foundation:EB_JBL_ATM_CARD_PARAMETER__CATEGORY *
+            @t24:i (t24Name=CATEGORY)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber="13->13.0", core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber="9->9.0", core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_Foundation:EB_JBL_ATM_CARD_PARAMETER__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEAL_NO -> EB_Foundation:EB_JBL_ATM_CARD_PARAMETER PK required
+            @i18n:Label (en="Deal Number")
+            @t24:i (align=L, inputBehaviour=I, maxLength=60, sysNumber=0.0, core=true, businessType=A, t24Name=DEAL.NO, mandatory=true)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber="14->14.0", core=true, t24Name=DEPT.CODE, mandatory=false)
+        INPUTTER -> byValue EB_Foundation:EB_JBL_ATM_CARD_PARAMETER__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        MAX_BATCH_SIZE : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber="4->4.0", core=true, t24Name=MAX.BATCH.SIZE, mandatory=false)
+        MAX_DISP_DATE : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=15, sysNumber="6->6.0", core=true, t24Name=MAX.DISP.DATE, mandatory=false)
+        MAX_REISSUE_DATE : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=15, sysNumber="5->5.0", core=true, t24Name=MAX.REISSUE.DATE, mandatory=false)
+        OVERRIDE -> byValue EB_Foundation:EB_JBL_ATM_CARD_PARAMETER__OVERRIDE *
+            @t24:i (t24Name=OVERRIDE)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber="8->8.0", core=true, t24Name=RECORD.STATUS, mandatory=false)
+        TITLE_LENGTH : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber="3->3.0", core=true, t24Name=TITLE.LENGTH, mandatory=false)
+    }
+    EB_JBL_ATM_CARD_PARAMETER__BIN
+    {
+        BIN : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=20, sysNumber="2->2.0", core=true, t24Name=BIN, mandatory=false)
+    }
+    EB_JBL_ATM_CARD_PARAMETER__CATEGORY
+    {
+        CATEGORY : T24BusinessTypes:N
+            @i18n:Label (en=Category)
+            @i18n:Tooltip (en="Specifies the Category")
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber="1->1.0", core=true, t24Name=CATEGORY, mandatory=false)
+    }
+    EB_JBL_ATM_CARD_PARAMETER__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber="11->11.0", core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_JBL_ATM_CARD_PARAMETER__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="10->10.0", core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_JBL_ATM_CARD_PARAMETER__OVERRIDE
+    {
+        OVERRIDE : T24BusinessTypes:A
+            @i18n:Label (en=Override)
+            @i18n:Tooltip (en="Overrides generated by this transaction")
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="7->7.0", core=true, t24Name=OVERRIDE, mandatory=false)
+    }
+}

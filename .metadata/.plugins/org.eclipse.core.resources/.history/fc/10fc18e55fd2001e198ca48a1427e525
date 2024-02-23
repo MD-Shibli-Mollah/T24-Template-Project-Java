@@ -1,0 +1,226 @@
+# UTF-8
+/* Foundation for Core */
+Domain EB_Foundation
+    @t24:i (module=EB)
+    @java:Package (value=com.temenos.t24.datamodel.eb.eb_foundation)
+namespace "http://www.temenos.com/t24/EB_Foundation"
+metamodelVersion 1.30.6
+Classes {
+    EB_JBL_ATM_CARD_MGT
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.JBL.ATM.CARD.MGT, level=I, type=D, additionalInfo=NOH, allowedFunctions="A C D E H I L P Q R S", localApplication=true, localRefAllowed=false)
+    {
+        ACCT_CATEGORY -> ST_Config:CATEGORY
+            @t24:i (align=L, inputBehaviour=I, maxLength=5, sysNumber="3->2.0", core=true, businessType=A, t24Name=ACCT.CATEGORY, mandatory=false)
+        ACCT_NO -> AC_AccountOpening:ACCOUNT required
+            @i18n:Label (en="Account Number")
+            @t24:i (align=L, inputBehaviour=I, maxLength=36, sysNumber="1->1.0", core=true, businessType=ANT, t24Name=ACCT.NO, mandatory=true)
+        APPROVED_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="16->15.0", core=true, t24Name=APPROVED.DATE, mandatory=false)
+        ATTRIBUTE1 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="29->28.0", core=true, t24Name=ATTRIBUTE1, mandatory=false)
+        ATTRIBUTE2 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="30->29.0", core=true, t24Name=ATTRIBUTE2, mandatory=false)
+        ATTRIBUTE3 : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="31->30.0", core=true, t24Name=ATTRIBUTE3, mandatory=false)
+        ATTRIBUTE4 : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="32->31.0", core=true, t24Name=ATTRIBUTE4, mandatory=false)
+        ATTRIBUTE5 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=40, sysNumber="38->37.0", core=true, t24Name=ATTRIBUTE5, mandatory=false)
+        ATTRIBUTE6 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=40, sysNumber="39->38.0", core=true, t24Name=ATTRIBUTE6, mandatory=false)
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber="48->47.0", core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber="49->48.0", core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="45->44.0", core=true, t24Name=AUTHORISER, mandatory=false)
+        BIN_CARD_NUM : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=8, sysNumber="33->32.0", core=true, t24Name=BIN.CARD.NUM, mandatory=false)
+        CARD_CLOSE_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="20->19.0", core=true, t24Name=CARD.CLOSE.DATE, mandatory=false)
+        CARD_CLOSE_REASON : EB_Foundation:EB_JBL_ATM_CARD_MGT__CARD_CLOSE_REASON
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="22->21.0", core=true, t24Name=CARD.CLOSE.REASON, mandatory=false)
+        CARD_CLOSE_RE_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="21->20.0", core=true, t24Name=CARD.CLOSE.RE.DATE, mandatory=false)
+        CARD_MASK : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="34->33.0", core=true, t24Name=CARD.MASK, mandatory=false)
+        CARD_NAME : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="5->4.0", core=true, t24Name=CARD.NAME, mandatory=false)
+        CARD_NETWORK : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="35->34.0", core=true, t24Name=CARD.NETWORK, mandatory=false)
+        CARD_NO : T24BusinessTypes:N
+            @i18n:Label (en="Card No")
+            @i18n:Tooltip (en="Credit card number, if payment mode is card.")
+            @t24:i (align=R, inputBehaviour=I, maxLength=20, sysNumber="4->3.0", core=true, t24Name=CARD.NO, mandatory=false)
+        CARD_STATUS : EB_Foundation:EB_JBL_ATM_CARD_MGT__CARD_STATUS
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="9->8.0", core=true, t24Name=CARD.STATUS, mandatory=false)
+        CARD_TYPE : EB_Foundation:EB_JBL_ATM_CARD_MGT__CARD_TYPE
+            @i18n:Label (en="Card Type")
+            @t24:i (align=L, inputBehaviour=I, maxLength=10, sysNumber="7->6.0", core=true, t24Name=CARD.TYPE, mandatory=false)
+        CHARGE_CODE -> CG_ChargeConfig:FT_COMMISSION_TYPE
+            @i18n:Label (en="Charge Code")
+            @i18n:Tooltip (en="Indicates the Charge code")
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="24->23.0", core=true, businessType=A, t24Name=CHARGE.CODE, mandatory=false)
+        CLOSE_CHG_CODE -> CG_ChargeConfig:FT_COMMISSION_TYPE
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="37->36.0", core=true, businessType=A, t24Name=CLOSE.CHG.CODE, mandatory=false)
+        CLOSE_WAIVE_CHG : EB_Foundation:EB_JBL_ATM_CARD_MGT__CLOSE_WAIVE_CHG
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber="36->35.0", core=true, t24Name=CLOSE.WAIVE.CHG, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber="46->45.0", core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber="42->41.0", core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_Foundation:EB_JBL_ATM_CARD_MGT__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEAL_NO -> EB_Foundation:EB_JBL_ATM_CARD_MGT PK required
+            @i18n:Label (en="Deal Number")
+            @t24:i (align=L, inputBehaviour=I, maxLength=60, sysNumber=0.0, core=true, businessType=A, t24Name=DEAL.NO, mandatory=true)
+        DELIVERY_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="17->16.0", core=true, t24Name=DELIVERY.DATE, mandatory=false)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber="47->46.0", core=true, t24Name=DEPT.CODE, mandatory=false)
+        FROM_DATE : T24BusinessTypes:D
+            @i18n:Label (en="Start Date")
+            @i18n:Tooltip (en="Date from which it is effective")
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="10->9.0", core=true, t24Name=FROM.DATE, mandatory=false)
+        INPUTTER -> byValue EB_Foundation:EB_JBL_ATM_CARD_MGT__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        INPUTTER_CO_CODE -> ST_CompanyCreation:COMPANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=9, sysNumber="12->11.0", core=true, businessType=A, t24Name=INPUTTER.CO.CODE, mandatory=false)
+        ISSUE_CHARGE_CODE -> CG_ChargeConfig:FT_COMMISSION_TYPE
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="26->25.0", core=true, businessType=A, t24Name=ISSUE.CHARGE.CODE, mandatory=false)
+        ISSUE_DATE : T24BusinessTypes:D
+            @i18n:Label (en="Issue Date")
+            @i18n:Tooltip (en="Indicates the date of issue ")
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="14->13.0", core=true, t24Name=ISSUE.DATE, mandatory=false)
+        ISSUE_TIME : T24BusinessTypes:T
+            @t24:i (align=L, inputBehaviour=I, maxLength=8, sysNumber="15->14.0", core=true, t24Name=ISSUE.TIME, mandatory=false)
+        ISSUE_WAIVE_CHARGE : EB_Foundation:EB_JBL_ATM_CARD_MGT__ISSUE_WAIVE_CHARGE
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber="25->24.0", core=true, t24Name=ISSUE.WAIVE.CHARGE, mandatory=false)
+        NARRATIVE : T24BusinessTypes:A
+            @i18n:Label (en=Narrative)
+            @i18n:Tooltip (en="Any narrative to be input for user information")
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber="13->12.0", core=true, t24Name=NARRATIVE, isTextarea=true, mandatory=false)
+        OVERRIDE -> byValue EB_Foundation:EB_JBL_ATM_CARD_MGT__OVERRIDE *
+            @t24:i (t24Name=OVERRIDE)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber="41->40.0", core=true, t24Name=RECORD.STATUS, mandatory=false)
+        REISSUE_CHG_CODE -> CG_ChargeConfig:FT_COMMISSION_TYPE
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="28->27.0", core=true, businessType=A, t24Name=REISSUE.CHG.CODE, mandatory=false)
+        REISSUE_REASON : EB_Foundation:EB_JBL_ATM_CARD_MGT__REISSUE_REASON
+            @t24:i (align=R, inputBehaviour=I, maxLength=25, sysNumber="8->7.0", core=true, t24Name=REISSUE.REASON, mandatory=false)
+        REISSUE_WAIVE_CHG : EB_Foundation:EB_JBL_ATM_CARD_MGT__REISSUE_WAIVE_CHG
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber="27->26.0", core=true, t24Name=REISSUE.WAIVE.CHG, mandatory=false)
+        REQUEST_STATUS : EB_Foundation:EB_JBL_ATM_CARD_MGT__REQUEST_STATUS
+            @t24:i (align=L, inputBehaviour=I, maxLength=25, sysNumber="2->49.0", core=true, t24Name=REQUEST.STATUS, mandatory=false)
+        REQUEST_TYPE : EB_Foundation:EB_JBL_ATM_CARD_MGT__REQUEST_TYPE required
+            @i18n:Label (en="Request Type")
+            @t24:i (align=L, inputBehaviour=I, maxLength=10, sysNumber="6->5.0", core=true, t24Name=REQUEST.TYPE, mandatory=true)
+        RE_ISSUE_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="18->17.0", core=true, t24Name=RE.ISSUE.DATE, mandatory=false)
+        RE_ISSUE_TIME : T24BusinessTypes:T
+            @t24:i (align=L, inputBehaviour=I, maxLength=8, sysNumber="19->18.0", core=true, t24Name=RE.ISSUE.TIME, mandatory=false)
+        TO_DATE : T24BusinessTypes:D
+            @i18n:Label (en="To Date")
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="11->10.0", core=true, t24Name=TO.DATE, mandatory=false)
+        WAIVE_CHARGE : EB_Foundation:EB_JBL_ATM_CARD_MGT__WAIVE_CHARGE
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber="23->22.0", core=true, t24Name=WAIVE.CHARGE, mandatory=false)
+    }
+    EB_JBL_ATM_CARD_MGT__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber="44->43.0", core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_JBL_ATM_CARD_MGT__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="43->42.0", core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_JBL_ATM_CARD_MGT__OVERRIDE
+    {
+        OVERRIDE : T24BusinessTypes:A
+            @i18n:Label (en=Override)
+            @i18n:Tooltip (en="Overrides generated by this transaction")
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="40->39.0", core=true, t24Name=OVERRIDE, mandatory=false)
+    }
+}
+Enumerations {
+    EB_JBL_ATM_CARD_MGT__CARD_CLOSE_REASON : mml:string
+        ACCT__CLOSE=ACCT-CLOSE
+        OTHER=OTHER
+    EB_JBL_ATM_CARD_MGT__CARD_STATUS : mml:string
+        AMEND=AMEND
+        APPROVED=APPROVED
+        CLOSED=CLOSED
+        DELIVERED=DELIVERED
+        DENIED=DENIED
+        DONE=DONE
+        PENDING=PENDING
+        PROCESSING=PROCESSING
+        RECEIVED=RECEIVED
+    EB_JBL_ATM_CARD_MGT__CARD_TYPE : mml:string
+        CREDIT=CREDIT
+        DEBIT=DEBIT
+        VISA=VISA
+    EB_JBL_ATM_CARD_MGT__CLOSE_WAIVE_CHG : mml:string
+        NO=NO
+        YES=YES
+    EB_JBL_ATM_CARD_MGT__ISSUE_WAIVE_CHARGE : mml:string
+        NO=NO
+        YES=YES
+    EB_JBL_ATM_CARD_MGT__REISSUE_REASON : mml:string
+        1=1
+        2=2
+        3=3
+        4=4
+        5=5
+        6=6
+        7=7
+    EB_JBL_ATM_CARD_MGT__REISSUE_WAIVE_CHG : mml:string
+        NO=NO
+        YES=YES
+    EB_JBL_ATM_CARD_MGT__REQUEST_STATUS : mml:string
+        1=1
+        10=10
+        11=11
+        12=12
+        13=13
+        14=14
+        15=15
+        16=16
+        2=2
+        3=3
+        4=4
+        5=5
+        6=6
+        7=7
+        8=8
+        9=9
+        CANCELLED=CANCELLED
+        NEW=NEW
+        PROCESSED=PROCESSED
+        SENT_TO_PRINTER=SENT.TO.PRINTER
+    EB_JBL_ATM_CARD_MGT__REQUEST_TYPE : mml:string
+        CLOSE=CLOSE
+        ISSUE=ISSUE
+        PINREISSUE=PINREISSUE
+        REISSUE=REISSUE
+        WAIVE=WAIVE
+    EB_JBL_ATM_CARD_MGT__WAIVE_CHARGE : mml:string
+        NO=NO
+        YES=YES
+}
