@@ -1,6 +1,0 @@
-# UTF-8
-Domain T24BusinessTypes
-    @java:Package (value=com.temenos.t24.datamodel.businesstypes)
-    @t24:i (businessTypes=true)
-namespace "http://www.odcgroup.com/business-types"
-metamodelVersion 1.30.6

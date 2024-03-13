@@ -6,12 +6,12 @@ Domain EB_Foundation
 namespace "http://www.temenos.com/t24/EB_Foundation"
 metamodelVersion 1.30.6
 Classes {
-    EB_JBL_SMS_ON_DEMAND
+    EB_JBL_SMS_BOOK
         @i18n:Description (en="")
-        @t24:i (t24Name=EB.JBL.SMS.ON.DEMAND, level=C, type=D, allowedFunctions="A C D E H I L P Q R S", localApplication=true, localRefAllowed=false)
+        @t24:i (t24Name=EB.JBL.SMS.BOOK, level=I, type=D, allowedFunctions="A C D E H I L P Q R S", localApplication=true, localRefAllowed=false)
     {
-        ATTACH_SEL_RTN : T24BusinessTypes:ANY
-            @t24:i (align=L, inputBehaviour=I, maxLength=65, sysNumber="3->3.0", core=true, t24Name=ATTACH.SEL.RTN, mandatory=false)
+        API_LINK : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=100, sysNumber="5->5.0", core=true, t24Name=API.LINK, mandatory=false)
         AUDITOR_CODE : T24BusinessTypes:A
             @i18n:Label (en="Auditor Code")
             @i18n:Tooltip (en="Auditor Code")
@@ -24,55 +24,54 @@ Classes {
             @i18n:Label (en=Authoriser)
             @i18n:Tooltip (en="Indicates the User who Authorises the record")
             @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="12->12.0", core=true, t24Name=AUTHORISER, mandatory=false)
-        CMD_BASED_ON_CUS : T24BusinessTypes:A
-            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber="2->2.0", core=true, t24Name=CMD.BASED.ON.CUS, isTextarea=true, mandatory=false)
         CO_CODE -> ST_CompanyCreation:COMPANY
             @i18n:Label (en=Company)
             @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber="13->13.0", core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
         CURR_NO : T24BusinessTypes:N
             @i18n:Label (en="Curr No")
             @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber="9->9.0", core=true, t24Name=CURR.NO, mandatory=false)
-        DATE_TIME -> byValue EB_Foundation:EB_JBL_SMS_ON_DEMAND__DATE_TIME *
+        DATE_TIME -> byValue EB_Foundation:EB_JBL_SMS_BOOK__DATE_TIME *
             @t24:i (t24Name=DATE.TIME)
-        DEAL_NO -> EB_Foundation:EB_JBL_SMS_ON_DEMAND PK required
+        DEAL_NO -> EB_Foundation:EB_JBL_SMS_BOOK PK required
             @i18n:Label (en="Deal Number")
             @t24:i (align=L, inputBehaviour=I, maxLength=60, sysNumber=0.0, core=true, businessType=A, t24Name=DEAL.NO, mandatory=true)
         DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
             @i18n:Label (en="Dept Code")
             @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber="14->14.0", core=true, t24Name=DEPT.CODE, mandatory=false)
-        FILE_DIR : T24BusinessTypes:ANY
-            @t24:i (align=L, inputBehaviour=I, maxLength=65, sysNumber="6->6.0", core=true, t24Name=FILE.DIR, mandatory=false)
-        FILE_NAME : T24BusinessTypes:ANY
-            @i18n:Label (en="File Name")
-            @t24:i (align=L, inputBehaviour=I, maxLength=65, sysNumber="5->5.0", core=true, t24Name=FILE.NAME, mandatory=false)
-        INPUTTER -> byValue EB_Foundation:EB_JBL_SMS_ON_DEMAND__INPUTTER *
+        EMAIL : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=65, sysNumber="3->3.0", core=true, t24Name=EMAIL, mandatory=false)
+        INPUTTER -> byValue EB_Foundation:EB_JBL_SMS_BOOK__INPUTTER *
             @t24:i (t24Name=INPUTTER)
-        OVERRIDE -> byValue EB_Foundation:EB_JBL_SMS_ON_DEMAND__OVERRIDE *
+        OVERRIDE -> byValue EB_Foundation:EB_JBL_SMS_BOOK__OVERRIDE *
             @t24:i (t24Name=OVERRIDE)
-        PROCESS_STATUS : EB_Foundation:EB_JBL_SMS_ON_DEMAND__PROCESS_STATUS
-            @i18n:Label (en="Process Status")
-            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="1->1.0", core=true, t24Name=PROCESS.STATUS, mandatory=false)
+        PHONE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="2->2.0", core=true, t24Name=PHONE, mandatory=false)
+        PRIORITY : T24BusinessTypes:N
+            @i18n:Label (en=Priority)
+            @t24:i (align=R, inputBehaviour=I, maxLength=2, sysNumber="4->4.0", core=true, t24Name=PRIORITY, mandatory=false)
         RECORD_STATUS : T24BusinessTypes:STAT
             @i18n:Label (en="Record Status")
             @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber="8->8.0", core=true, t24Name=RECORD.STATUS, mandatory=false)
         SMS_BODY : T24BusinessTypes:A
-            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber="4->4.0", core=true, t24Name=SMS.BODY, isTextarea=true, mandatory=false)
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber="6->6.0", core=true, t24Name=SMS.BODY, isTextarea=true, mandatory=false)
+        SMS_STATUS : EB_Foundation:EB_JBL_SMS_BOOK__SMS_STATUS
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="1->1.0", core=true, t24Name=SMS.STATUS, mandatory=false)
     }
-    EB_JBL_SMS_ON_DEMAND__DATE_TIME
+    EB_JBL_SMS_BOOK__DATE_TIME
     {
         DATE_TIME : T24BusinessTypes:RELTIME
             @i18n:Label (en="Date time")
             @i18n:Tooltip (en="Date and time when record was input or authorised")
             @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber="11->11.0", core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
     }
-    EB_JBL_SMS_ON_DEMAND__INPUTTER
+    EB_JBL_SMS_BOOK__INPUTTER
     {
         INPUTTER : T24BusinessTypes:A
             @i18n:Label (en=Inputter)
             @i18n:Tooltip (en="The user who last updated the record")
             @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="10->10.0", core=true, t24Name=INPUTTER, mandatory=false)
     }
-    EB_JBL_SMS_ON_DEMAND__OVERRIDE
+    EB_JBL_SMS_BOOK__OVERRIDE
     {
         OVERRIDE : T24BusinessTypes:A
             @i18n:Label (en=Override)
@@ -81,7 +80,7 @@ Classes {
     }
 }
 Enumerations {
-    EB_JBL_SMS_ON_DEMAND__PROCESS_STATUS : mml:string
+    EB_JBL_SMS_BOOK__SMS_STATUS : mml:string
         FAILED=FAILED
         SENT=SENT
 }

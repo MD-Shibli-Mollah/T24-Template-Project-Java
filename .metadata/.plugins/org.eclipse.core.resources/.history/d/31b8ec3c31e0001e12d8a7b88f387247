@@ -29,6 +29,6 @@ BusinessTypes {
         @t24:i (t24Name=STAT)
     RELTIME : mml:string
         @t24:i (t24Name=RELTIME)
-    N : mml:string
-        @t24:i (t24Name=N)
+    AMT : mml:string
+        @t24:i (t24Name=AMT)
 }
